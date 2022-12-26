@@ -11,17 +11,17 @@ export function CardButton({texto,onPress}){
 
 const styles = StyleSheet.create({
     container:{
-        backgroundColor: '#d40f60',
-        width: "100%",
+        backgroundColor: '#666666',
+        width:280,
         height: 50,
         alignItems: 'center',
         justifyContent: 'center',
-        borderRadius: 15,
+        borderRadius: 1,
         margin: 5,
     },  
     texto:{
         color: '#FFFFFF',
-        fontSize: 24,
-        fontWeight: 'bold   '
+        fontSize: 18,
+        fontWeight: '400'
     }
 });
