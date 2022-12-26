@@ -17,7 +17,11 @@ export function Cadastro({navigation}){
             titulo: titulo,
             data: data,
             descricao: descricao 
-        }    
+        }   
+
+        const date = { descricao}
+        console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
+        console.log(date.descricao)
 
         const vetDado = [...tarefas, dado]  
         try {
@@ -37,7 +41,9 @@ export function Cadastro({navigation}){
         try{
             const retorno = await AsyncStorage.getItem('TarefaDado');   
             const dadosTarefas= await JSON.parse( retorno )
+            console.log( 'loadDado -> ', retorno)
             console.log( 'loadDado -> ', dadosTarefas);
+            
             setTarefas( dadosTarefas|| [] );
         }catch(error){
             Alert.alert("Erro na leitura  dos dados");
@@ -58,28 +64,26 @@ export function Cadastro({navigation}){
                 style= {styles.input}
                 placeholder="Titulo"
                 value={titulo}
-                onChangeText={(e)=> setTitulo(e)}
+                onChangeText={setTitulo}
                 />
                 <TextInput
                 style= {styles.input}
                 value={descricao}
                 placeholder="Descrição"
-                onChangeText={(e)=> setDescricao(e)}
+                onChangeText={setDescricao}
                 />
                 <TextInput
                 style= {styles.input}
                 value={data}
                 placeholder="Data"
                 keyboardType= "number"
-                onChangeText={(e)=> setarData(e)}
+                onChangeText={setarData}
 
                 />
             </View>
             <TouchableOpacity 
             style={styles.button}
-            onPress={()=>{navigation.navigate('Page2',{
-                
-            })}}
+            onPress={()=>{handleSaveTarefas()}}
             >
             <Text style={styles.button_text}>Cadastrar</Text>
             </TouchableOpacity>

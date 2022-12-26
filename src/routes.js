@@ -11,7 +11,7 @@ export function Routes() {
     <Stack.Navigator>
       <Stack.Screen name="Home" component={Home}  options={{ headerShown: false  }}  />
       <Stack.Screen name="Cadastro" component={Cadastro} options={{ headerShown: false, headerTitleAlign: 'center'}} />
-      <Stack.Screen name="Page2" component={Page2} options={{ headerShown: false, headerTitleAlign: 'center'}} />
+      <Stack.Screen name="Page2" component={Page2} options={{ headerTitleAlign: 'center'}} />
     </Stack.Navigator>
   );
 }

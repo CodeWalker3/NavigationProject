@@ -7,9 +7,7 @@ import { CardButton } from "../components/CardButton";
 
 export function Page2({ navigation, route }){
     const [tarefas, setTarefas] = useState([]);
-    useEffect(() => {
-        loadDado();
-    }, []);
+    
 
     async function loadDado(){
         try{
@@ -21,9 +19,12 @@ export function Page2({ navigation, route }){
             Alert.alert("Erro na leitura  dos dados");
         }
     }
-    
+    useEffect(() => {
+        loadDado();
+    }, []);
     return(
         <View style={styles.container}>
+            <CardButton  texto={"Cadastrar"} onPress={()=> navigation.navigate('Cadastro')}/>
             <View>
             <FlatList data={tarefas}
             keyExtractor={item => item.id}
@@ -38,9 +39,7 @@ export function Page2({ navigation, route }){
             }
             />
             </View>
-
-                <CardButton  texto={"Cadastrar"} onPress={()=> navigation.navigate('Cadastro')}/>
-
+                
         </View>
     )   
 }
